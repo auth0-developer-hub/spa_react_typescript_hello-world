@@ -1,0 +1,68 @@
+.button {
+  border: 0;
+  border-radius: 0.4rem;
+
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: var(--white);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: background 0.3s ease-out, color 0.3s ease-out;
+
+  /* responsive */
+
+  min-width: 10rem;
+  padding: 1.6rem 1.6rem;
+
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.button--compact {
+  /* responsive */
+
+  padding: 1rem 1.6rem;
+
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+}
+
+.button--primary {
+  background-color: var(--indigo);
+}
+
+.button--primary:hover {
+  background: rgba(99, 93, 255, 0.85);
+}
+
+.button--secondary {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.button--secondary:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+@media only screen and (max-width: 480px) {
+  .button {
+    /* responsive */
+
+    min-width: 0.8rem;
+    padding: 1rem 1.2rem;
+
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+  }
+
+  .button--compact {
+    /* responsive */
+
+    padding: 0.6rem 1rem;
+
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}

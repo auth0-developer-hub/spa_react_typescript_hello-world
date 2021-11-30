@@ -1,0 +1,19 @@
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.page-layout__content {
+  flex: 1;
+  flex-basis: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 120rem;
+  width: 100%;
+}
