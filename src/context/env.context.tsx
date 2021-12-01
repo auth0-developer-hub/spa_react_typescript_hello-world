@@ -1,13 +1,21 @@
 import React from "react";
 import { Env } from "../models/env";
 
+const domain: string | undefined = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId: string | undefined = process.env.REACT_APP_AUTH0_CLIENT_ID;
+const audience: string | undefined = process.env.REACT_APP_AUTH0_AUDIENCE;
 const apiServerUrl: string | undefined = process.env.REACT_APP_API_SERVER_URL;
 
-if (!apiServerUrl) {
+const isEnvValid = domain && clientId && audience && apiServerUrl;
+
+if (!isEnvValid) {
   throw new Error("Missing environment variables.");
 }
 
 const dotenv: Env = {
+  domain: domain,
+  clientId: clientId,
+  audience: audience,
   apiServerUrl: apiServerUrl,
 };
 

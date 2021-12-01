@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { useState } from "react";
 import { useEnv } from "../context/env.context";
@@ -17,10 +18,23 @@ export const useExternalApi = () => {
   const [selectedAccessControlLevel, setSelectedAccessControlLevel] =
     useState<AccessControlLevel | null>(null);
 
+  const { getAccessTokenSilently } = useAuth0();
   const { apiServerUrl } = useEnv();
 
-  const makeRequest = async (options: { config: AxiosRequestConfig }) => {
+  const makeRequest = async (options: {
+    config: AxiosRequestConfig;
+    authenticated?: boolean;
+  }) => {
     try {
+      if (options.authenticated) {
+        const token = await getAccessTokenSilently();
+
+        options.config.headers = {
+          ...options.config.headers,
+          Authorization: `Bearer ${token}`,
+        };
+      }
+
       const response: AxiosResponse = await axios(options.config);
       const { data } = response;
 
@@ -65,7 +79,7 @@ export const useExternalApi = () => {
       },
     };
 
-    const data = await makeRequest({ config });
+    const data = await makeRequest({ config, authenticated: true });
 
     setApiResponse(JSON.stringify(data, null, 2));
   };
@@ -83,7 +97,7 @@ export const useExternalApi = () => {
       },
     };
 
-    const data = await makeRequest({ config });
+    const data = await makeRequest({ config, authenticated: true });
 
     setApiResponse(JSON.stringify(data, null, 2));
   };
@@ -101,7 +115,7 @@ export const useExternalApi = () => {
       },
     };
 
-    const data = await makeRequest({ config });
+    const data = await makeRequest({ config, authenticated: true });
 
     setApiResponse(JSON.stringify(data, null, 2));
   };

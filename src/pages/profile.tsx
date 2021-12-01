@@ -1,24 +1,23 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { CodeSnippet } from "src/components/code-snippet";
-import { UserProfile } from "../models/user-profile";
 
 export const Profile = () => {
-  const user: UserProfile = {
-    nickname: "Alex",
-    name: "Alex Cero",
-    picture: "https://cdn.auth0.com/blog/hello-auth0/auth0-user.png",
-    updated_at: "2021-05-04T21:33:09.415Z",
-    email: "alex@example.com",
-    email_verified: false,
-    sub: "auth0|12345678901234567890",
-  };
+  const { user } = useAuth0();
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="content-layout">
       <h1 className="content__title">Profile</h1>
       <div className="content__body">
         <p>
-          <strong>Only authenticated users should access this page.</strong>
+          You can use the ID Token to get the profile information of an
+          authenticated user.
+          <br />
+          <strong>Only authenticated users can access this page.</strong>
         </p>
         <div className="profile-grid">
           <div className="profile__header">

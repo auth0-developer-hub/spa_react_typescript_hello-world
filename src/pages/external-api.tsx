@@ -23,7 +23,7 @@ export const ExternalApi = () => {
           <br />
           Each API endpoint has a different access control level.
           <br />
-          <strong>Only authenticated users should access this page.</strong>
+          <strong>Only authenticated users can access this page.</strong>
         </p>
 
         <div className="messages-grid">
