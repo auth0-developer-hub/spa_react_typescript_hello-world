@@ -29,7 +29,7 @@ export const Profile = () => {
           </div>
           <div className="profile__details">
             <CodeSnippet
-              title="User Profile Object"
+              title="Decoded ID Token"
               code={JSON.stringify(user, null, 2)}
             />
           </div>
