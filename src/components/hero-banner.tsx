@@ -21,7 +21,7 @@ export const HeroBanner: React.FC = () => {
       </p>
 
       <button onClick={openCodeSample} className="button button--secondary">
-        Check Out the Auth0 React Code Sample →
+        Check out the code sample →
       </button>
     </div>
   );
