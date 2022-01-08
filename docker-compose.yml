@@ -1,10 +1,10 @@
 version: "3"
 services:
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile-dev
+    build: .
     image: spa_react_typescript_hello-world_starter
     container_name: spa_react_typescript_hello-world_starter
     ports:
-      - 4040:4040
+      - 4040:80
+    env_file:
+      - .env
