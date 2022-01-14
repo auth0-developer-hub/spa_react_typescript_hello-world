@@ -1,4 +1,4 @@
-FROM node:16.13.1-buster-slim@sha256:95ac258b85c9173e1ea3948cc5ac69471342aa2562701fd75ce35acaa5ce4754 AS build
+FROM node:16.13.1-buster-slim@sha256:0f5899ce17fba632bcbf2626164efe0fd2e4f354dc1d94eeb46d0af8b9cf268f AS build
 RUN mkdir /app
 RUN chown -R node:node /app
 USER node
