@@ -21,12 +21,15 @@ export const getPublicResource = async (): Promise<ApiResponse> => {
   };
 };
 
-export const getProtectedResource = async (): Promise<ApiResponse> => {
+export const getProtectedResource = async (
+  accessToken: string
+): Promise<ApiResponse> => {
   const config: AxiosRequestConfig = {
     url: `${apiServerUrl}/api/messages/protected`,
     method: "GET",
     headers: {
       "content-type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
     },
   };
 
@@ -38,12 +41,15 @@ export const getProtectedResource = async (): Promise<ApiResponse> => {
   };
 };
 
-export const getAdminResource = async (): Promise<ApiResponse> => {
+export const getAdminResource = async (
+  accessToken: string
+): Promise<ApiResponse> => {
   const config: AxiosRequestConfig = {
     url: `${apiServerUrl}/api/messages/admin`,
     method: "GET",
     headers: {
       "content-type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
     },
   };
 
