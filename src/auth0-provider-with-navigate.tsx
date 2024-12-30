@@ -1,6 +1,6 @@
 import { Auth0Provider, AppState } from "@auth0/auth0-react";
 import React, { PropsWithChildren } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 interface Auth0ProviderWithNavigateProps {
   children: React.ReactNode;
